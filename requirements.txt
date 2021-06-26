@@ -1,7 +1,7 @@
 pandas
 numpy
 awscli
-
+argparse
 urllib3
 
 tqdm
