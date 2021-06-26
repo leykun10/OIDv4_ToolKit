@@ -238,7 +238,7 @@ Hence with `d` (next), `a` (previous) and `q` (exit) you will be able to explore
   The downloaded label text file contains the name of the class for each bounding box instead of its integer representation.
   The Yolov5 requires a dataset of format class label in integer,and the cordinates consecutively.
   Example:
-  Downloaded text file  [Car,10,20,40,50] -------------> [0,10.20,40,50] Yolov5 training dataset format
+  Downloaded text file  [Car,10,20,40,50] -------------> [0,0.2,0.4,0.8,0.9] Yolov5 training dataset format
         
   The below script converts the label text file in to a yolov5 trainable format 
         
