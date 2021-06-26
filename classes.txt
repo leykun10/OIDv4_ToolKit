@@ -1,4 +1,4 @@
 Bus
 Car
 Motorcycle
-Vehicle_licence_plate
+Vehicle_registration_plate
