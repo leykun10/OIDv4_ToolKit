@@ -233,7 +233,22 @@ Hence with `d` (next), `a` (previous) and `q` (exit) you will be able to explore
   <img width="540" height="303" src="images/visualizer_example.gif">
 </p>
 
-# 5.0 Community Contributions
+        
+# 5.0 Converting downloaded label file into Yolov5 training dataset format        
+  The downloaded label text file contains the name of the class for each bounding box instead of its integer representation.
+  The Yolov5 requires a dataset of format class label in integer,and the cordinates consecutively.
+  Example:
+  Downloaded text file  [Car,10,20,40,50] -------------> [0,10.20,40,50] Yolov5 training dataset format
+        
+  The below script converts the label text file in to a yolov5 trainable format 
+        
+  ```bash
+   python3 convert_to_yolov5_format.py --path "path to label text files"
+   ```
+        
+        
+        
+# 6.0 Community Contributions
 - [Denis Zuenko](https://github.com/zuenko) has added multithreading to the ToolKit and is currently working on the generalization and speeding up process of the labels creation
 - [Skylion007](https://github.com/Skylion007) has improved labels creation reducing the runtime from O(nm) to O(n). That massively speeds up label generation
 - [Alex March](https://github.com/hosaka) has added the limit option to the ToolKit in order to download only a maximum number of images of a certain class
