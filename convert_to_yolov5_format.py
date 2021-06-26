@@ -1,22 +1,21 @@
 import argparse
 import os
 
+with open('classes.txt', 'r') as f:
+    data = f.read()
+classes = [str(i) for i in data.split()]
+
 
 def name_to_class(name):
-    if name.__eq__("Bus"):
-        return "0"
-    elif name.__eq__("Car"):
-        return "1"
-    elif name.__eq__("Motorcycle"):
-        return "2"
-    elif name.__eq__("Vehicle_registration_plate"):
-        return "3"
-    else:
-        return "no_class"
+    try:
+        return str(classes.index(name))
+
+    except ValueError:
+
+        return "no Class"
 
 
 def main(path):
-
     for file in os.listdir(path):
         data = os.path.join(path, file)
         with open(data, 'r+') as f:
@@ -37,6 +36,5 @@ def main(path):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Path to dataset')
     parser.add_argument("--path", required=True)
-
     args = parser.parse_args()
     main(str(args.path))
