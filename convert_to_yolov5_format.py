@@ -3,7 +3,12 @@ import os
 import cv2
 import numpy as np
 
-with open('classes.txt', 'r') as class_file:
+if os.getcwd().__contains__("OIDv4_ToolKit"):
+    class_path = "classes.txt"
+else:
+    class_path = os.path.join(os.getcwd(), "OIDv4_ToolKit")
+
+with open(class_path, 'r') as class_file:
     class_names = class_file.read()
 classes = [str(i) for i in class_names.split()]
 
@@ -23,19 +28,22 @@ def name_to_class(array, shape):
 
 
 def main(path):
-    label_path = os.path.join(path, "Label")
+
+    label_path = os.path.join(path, "labels")
     for file in os.listdir(label_path):
         data = os.path.join(label_path, file)
 
-        img_name = str.split(file, ".")[0] + ".png"
-        print(os.path.join(path, img_name))
+        img_name = "images/" + str.split(file, ".")[0] + ".png"
         image = cv2.imread(os.path.join(path, img_name))
         with open(data, 'r+') as f:
             arrays = []
             for line in f:
-                print(line)
                 labels = line.split(sep=" ")
-                c_labels = [labels[0], float(labels[1]), float(labels[2]), float(labels[3]), float(labels[4])]
+                if labels[0] == "Vehicle":
+                    c_labels = [labels[0], float(labels[3]), float(labels[4]), float(labels[5]), float(labels[6])]
+                else:
+
+                    c_labels = [labels[0], float(labels[1]), float(labels[2]), float(labels[3]), float(labels[4])]
                 m_labels = name_to_class(c_labels, image.shape)
                 line = " ".join(m_labels)
                 print(line)
@@ -48,6 +56,6 @@ def main(path):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Path to dataset')
-    parser.add_argument("--path", required=True)
+    parser.add_argument("--path")
     args = parser.parse_args()
     main(str(args.path))

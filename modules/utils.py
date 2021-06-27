@@ -37,7 +37,7 @@ def mkdirs(Dataset_folder, csv_folder, classes, type_csv):
 
     :param Dataset_folder: Self explanatory
     :param csv_folder: folder path of csv files
-    :param classes: list of classes to download
+    :param classes: list of classes.txt to download
     :param type_csv: train, validation, test or all 
     :return: None
     '''
@@ -109,7 +109,7 @@ def progression_bar(total_images, index):
 
 def show_classes(classes):
     '''imag
-    Show the downloaded classes in the selected folder during visualization mode
+    Show the downloaded classes.txt in the selected folder during visualization mode
     '''
     for n in classes:
         print("- {}".format(n))

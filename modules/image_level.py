@@ -42,7 +42,7 @@ def image_level(args, DEFAULT_OID_DIR):
 			print(bc.FAIL + 'Missing type_csv argument.' + bc.ENDC)
 			exit(1)
 		if args.classes is None:
-			print(bc.FAIL + 'Missing classes argument.' + bc.ENDC)
+			print(bc.FAIL + 'Missing classes.txt argument.' + bc.ENDC)
 			exit(1)
 		if args.multiclasses is None:
 			args.multiclasses = 0

@@ -7,7 +7,7 @@
 
 """
 OID v4 Downloader
-Download specific classes of the huge online dataset Open Image Dataset.
+Download specific classes.txt of the huge online dataset Open Image Dataset.
 Licensed under the MIT License (see LICENSE for details)
 ------------------------------------------------------------
 Usage:

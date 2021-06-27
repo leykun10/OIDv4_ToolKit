@@ -16,9 +16,9 @@ def parser_arguments():
     parser.add_argument('-y', '--yes', required=False, action='store_true',
                         #metavar="Yes to download missing files",
                         help='ans Yes to possible download of missing files')
-    parser.add_argument('--classes', required=False, nargs='+',
-                        metavar="list of classes",
-                        help="Sequence of 'strings' of the wanted classes")
+    parser.add_argument('--classes.txt', required=False, nargs='+',
+                        metavar="list of classes.txt",
+                        help="Sequence of 'strings' of the wanted classes.txt")
     parser.add_argument('--type_csv', required=False, choices=['train', 'test', 'validation', 'all'],
                         metavar="'train' or 'validation' or 'test' or 'all'",
                         help='From what csv search the images')
@@ -45,7 +45,7 @@ def parser_arguments():
 
     parser.add_argument('--multiclasses', required=False, default='0', choices=['0', '1'],
                        metavar="0 (default) or 1",
-                       help='Download different classes separately (0) or together (1)')
+                       help='Download different classes.txt separately (0) or together (1)')
 
     parser.add_argument('--n_threads', required=False, metavar="[default 20]",
                        help='Num of the threads to use')
