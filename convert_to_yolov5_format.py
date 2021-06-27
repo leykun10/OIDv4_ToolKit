@@ -33,7 +33,7 @@ def main(path):
     for file in os.listdir(label_path):
         data = os.path.join(label_path, file)
 
-        img_name = "images/" + str.split(file, ".")[0] + ".png"
+        img_name = "images/" + str.split(file, ".")[0] + ".jpg"
         image = cv2.imread(os.path.join(path, img_name))
         with open(data, 'r+') as f:
             arrays = []
