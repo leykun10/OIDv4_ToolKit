@@ -16,7 +16,7 @@ def parser_arguments():
     parser.add_argument('-y', '--yes', required=False, action='store_true',
                         #metavar="Yes to download missing files",
                         help='ans Yes to possible download of missing files')
-    parser.add_argument('--classes.txt', required=False, nargs='+',
+    parser.add_argument('--classes', required=False, nargs='+',
                         metavar="list of classes.txt",
                         help="Sequence of 'strings' of the wanted classes.txt")
     parser.add_argument('--type_csv', required=False, choices=['train', 'test', 'validation', 'all'],
