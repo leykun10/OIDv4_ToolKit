@@ -6,22 +6,32 @@ import numpy as np
 if os.getcwd().__contains__("OIDv4_ToolKit"):
     class_path = "classes.txt"
 else:
-    class_path = os.path.join(os.getcwd(), "OIDv4_ToolKit")
+    class_path = os.path.join(os.getcwd(), "OIDv4_ToolKit/classes.txt")
 
 with open(class_path, 'r') as class_file:
     class_names = class_file.read()
 classes = [str(i) for i in class_names.split()]
 
 
-def name_to_class(array, shape):
+def name_to_class(coords, shape):
     try:
-        array[0] = str(classes.index(array[0]))
-        array[3] = str((array[1] + ((array[3] - array[1]) / 2)) / int(shape[0]))
-        array[4] = str((array[2] + ((array[4] - array[2]) / 2)) / int(shape[1]))
-        array[1] = str(array[1] / int(shape[0]))
-        array[2] = str(array[2] / int(shape[1]))
+        coords[0] = str(classes.index(coords[0]))
+        coords[3] -= coords[1]
+        coords[4] -= coords[2]
+        x_diff = int(coords[3]/2)
+        y_diff = int(coords[4]/2)
+        coords[1] = coords[1]+x_diff
+        coords[2] = coords[2]+y_diff
+        coords[1] /= int(shape[1])
+        coords[2] /= int(shape[0])
+        coords[3] /= int(shape[1])
+        coords[4] /= int(shape[0])
+        coords[1] = str( coords[1])
+        coords[2] = str( coords[2])
+        coords[3] = str( coords[3])
+        coords[4] = str( coords[4])
 
-        return array
+        return coords
 
     except ValueError:
         print("class not available")
