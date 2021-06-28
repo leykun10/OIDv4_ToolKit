@@ -49,6 +49,8 @@ def main(path):
             arrays = []
             for line in f:
                 labels = line.split(sep=" ")
+                if labels[0] == "0" or labels[0] == "1" or labels[0] == "2" or labels[0] == "3":
+                    continue
                 if labels[0] == "Vehicle":
                     c_labels = [labels[0], float(labels[3]), float(labels[4]), float(labels[5]), float(labels[6])]
                 else:
@@ -56,9 +58,8 @@ def main(path):
                     c_labels = [labels[0], float(labels[1]), float(labels[2]), float(labels[3]), float(labels[4])]
                 m_labels = name_to_class(c_labels, image.shape)
                 line = " ".join(m_labels)
-                print(line)
                 arrays.append(line + "\n")
-            print(arrays[0], arrays[1])
+            
             f.seek(0)
             f.writelines(arrays)
             f.truncate()
