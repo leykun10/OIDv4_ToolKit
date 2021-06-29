@@ -94,7 +94,7 @@ Example: `Polar_bear`.
 
 Let's for example download Apples and Oranges from the validation set. In this case we have to use the following command.
   ```bash
-   python3 main.py downloader --classes.txt Apple Orange --type_csv validation
+   python3 main.py downloader --classes Apple Orange --type_csv validation
    ```
 The algorith will take care to download all the necessary files and build the directory structure like this:
 
@@ -151,7 +151,7 @@ This option allows to download more classes, but in a common folder. Also the re
 
 Again if we want to download Apple and Oranges, but in a common folder
   ```bash
-   python3 main.py downloader --classes.txt Apple Orange --type_csv validation --multiclasses 1
+   python3 main.py downloader --classes Apple Orange --type_csv validation --multiclasses 1
    ```
 
 ### Annotations
